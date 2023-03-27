@@ -1,24 +1,38 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement(
-    "div", { id: "parent" },
-    [React.createElement("div", { id: "child" },
-        [React.createElement("h1", {}, "I'm h1 tag."),
-        React.createElement("h2", {}, "I'm h2 tag.")]
-    ),
-    React.createElement("div", { id: "child2" },
-        [React.createElement("h1", {}, "I'm h1 tag."),
-        React.createElement("h2", {}, "I'm h2 tag.")]
-    )
-    ]
-)
+// React.createElement ==> ReactElement -JS Object ==> HTMLElement(render)
 
-const heading = React.createElement(
-    "h1",
-    { "id": "heading" },
-    "Hello World from react!"
-);
-console.log(parent); // object not a tag.
+// const heading = React.createElement("h1",{id:"heading"},"Namaste React");
+// console.log(heading);
+
+// JSX - is not HTML in JS. It is HTML like syntax.
+// Creating react element using JSX.
+// JSX (transpiled before it reaches the JS engine)- PARCEL - BABEL
+// JSX =>Babel transiples it to React.createElement => ReactElement -JS Object ==> HTMLElement(render)
+
+// React Element
+const heading = <h1 className="head">Namaste React using JSX</h1>;
+
+// React Component
+// 1. Class based component - Old (nobody uses now)
+// 2. Functional Component - NEW
+
+// React Functional Component
+const Title = () => <h1>Namaste React using JSX.</h1>;
+const number = 10000;
+const HeadingComponent = () => {
+  return (
+    <div id="container">
+      {Title()}
+      <Title />
+      <Title></Title>
+      <h2>{number}</h2>
+      <h1 className="heading">Namaste react functional component</h1>
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+
+root.render(<HeadingComponent />);

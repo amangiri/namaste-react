@@ -1,0 +1,13 @@
+Learn Parcel and Babel
+Babel transpiles the code to JS.
+Babel gets JSX code and converts it to React.createElement which react understands.
+use camel case for attributes.
+-----------Ext------------
+Prettier
+Better Comments
+ES lint
+Bracket Pair colorizer
+----------------------------------
+Component Composition- Components under components
+In JSX Inside {} we can write and JS code.
+JSX will take care of cross site scripting attack.
