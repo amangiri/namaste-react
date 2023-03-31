@@ -11,3 +11,11 @@ Bracket Pair colorizer
 Component Composition- Components under components
 In JSX Inside {} we can write and JS code.
 JSX will take care of cross site scripting attack.
+
+------------------- episode4------------
+config driven ui (frontend system design interview)
+optional chaining (resData?.data)
+use map insted of for looping (checkout map filter and reduce video)
+always give a key while looping
+react official docs says never use indexs as keys
+index as a key is anti-pattern
