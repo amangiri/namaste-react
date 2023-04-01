@@ -12,10 +12,34 @@ Component Composition- Components under components
 In JSX Inside {} we can write and JS code.
 JSX will take care of cross site scripting attack.
 
-------------------- episode4------------
+------------------- episode-04------------
 config driven ui (frontend system design interview)
 optional chaining (resData?.data)
 use map insted of for looping (checkout map filter and reduce video)
 always give a key while looping
 react official docs says never use indexs as keys
 index as a key is anti-pattern
+
+------------------- episode-05------------
+module can't have multiple default export;
+use named export for multiple export
+Named export
+Two types of IMPORT and export
+    - Default Export/Import
+        - export default component/Var/converts
+        - import Component from "path";
+    -Named Export/Import
+        - export const Component;
+        -import {component } from "path".
+
+-------------React Hooks---------------
+React Superpower is DOM Manipulation
+Normal JS utility functions
+    - useState() -Superpowerful State variable in react - Whenever a state variable changes , react re-renders the component.
+    - useEffect()
+
+React uses Reconciliation Algorithm also known as React fiber(came in React 16).
+The react virtual dom is a representaion of actual DOM or it is the representaion of HTML tags in JS Object.
+<Header /> : Is a virtual dom. Object (log to check)
+---------------DIFF Algorithm ------------
+It finds out the difference b/w old virtual dom and new virtual dom. It will then calculate the diff and upadte the DOM for every render cycle. 

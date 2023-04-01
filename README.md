@@ -18,3 +18,21 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+# nanaste food
+/**
+ * Header
+ *  - Logo
+ *  - nav Items
+ * Body
+ *  - Search
+ *  - RestaurantContainer
+ *  - ResturantCard
+ *    - Image
+ *    - Name, rating,cuisine, delivery time
+ * Footer
+ *  - Copyright
+ *  - Links
+ *  - Address
+ *  - Contact
+ */
