@@ -19,7 +19,7 @@
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
 
-# nanaste food
+# Namaste food
 /**
  * Header
  *  - Logo

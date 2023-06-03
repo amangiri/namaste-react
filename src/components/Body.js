@@ -2,7 +2,7 @@ import ResturantCard from "./ResturantCard";
 import { useEffect, useState } from "react";
 // import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
-
+import { Link } from "react-router-dom";
 const Body = () => {
   // Local State Variable - super powerful variabe
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
@@ -80,7 +80,12 @@ const Body = () => {
         {/* <ResturantCard  resData={resList[0]}    /> */}
         {/* <ResturantCard resName="KFC" cuisine="Burger, Fast Food" /> */}
         {searchedRestaurants.map((restaurant) => (
-          <ResturantCard key={restaurant.data.id} resData={restaurant} />
+          <Link
+            key={restaurant.data.id}
+            to={"/restaurant/" + restaurant.data.id}
+          >
+            <ResturantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
