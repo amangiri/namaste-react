@@ -3,3 +3,4 @@ Prettier
 Better Comments
 ES lint
 Bracket Pair colorizer
+cors chrome ext
