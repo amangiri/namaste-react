@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 // import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Body = () => {
   // Local State Variable - super powerful variabe
   const [listOfRestaurants, setlistOfRestaurants] = useState([]);
@@ -16,6 +18,10 @@ const Body = () => {
   useEffect(() => {
     console.log("useEffect called");
     fetchData();
+
+    return ()=>{
+      console.log("called after component unmounting.");
+    }
   }, []);
 
   const fetchData = async () => {
@@ -23,7 +29,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6474698&lng=77.1140881&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     // optional chaining
     setlistOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setSearchedRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -34,6 +40,14 @@ const Body = () => {
   // if(listOfRestaurants.length===0){
   //   return <Shimmer/>
   // }
+
+  const onlineStatus= useOnlineStatus();
+console.log(onlineStatus);
+  if(!onlineStatus){
+    return <h1>
+      Looks like you are offline! Please check your internet connection.
+    </h1>
+  }
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
