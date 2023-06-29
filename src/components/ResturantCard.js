@@ -16,17 +16,14 @@ const ResturantCard = (props) => {
   }
   return (
     <div
-      className="res-card"
-      style={{
-        backgroundColor: "#f0f0f0",
-      }}
+      className="m-4 p-4 w-[200px] bg-gray-100 rounded-lg hover:bg-gray-300"      
     >
       <img
-        className="res-logo"
+        className="rounded-lg"
         src={CDN_URL + cloudinaryImageId}
         alt="res-logo"
       />
-      <h3 onClick={()=>{fun(name)}}>{name}</h3>
+      <h3 className="font-bold py-2 text-lg hover:z-10">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} Stars</h4>
       <h4>₹{costForTwo / 100} FOR TWO</h4>

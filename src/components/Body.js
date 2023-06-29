@@ -12,16 +12,16 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   // whenever state variable updates, react triggers a reconciliation cycle(re-renders the component)
-  console.log("Body Rendered");
+  // console.log("Body Rendered");
 
   // callback funcn will be called after componenet is rendered
   useEffect(() => {
-    console.log("useEffect called");
+    // console.log("useEffect called");
     fetchData();
 
-    return ()=>{
-      console.log("called after component unmounting.");
-    }
+    return () => {
+      // console.log("called after component unmounting.");
+    };
   }, []);
 
   const fetchData = async () => {
@@ -41,28 +41,32 @@ const Body = () => {
   //   return <Shimmer/>
   // }
 
-  const onlineStatus= useOnlineStatus();
-console.log(onlineStatus);
-  if(!onlineStatus){
-    return <h1>
-      Looks like you are offline! Please check your internet connection.
-    </h1>
+  const onlineStatus = useOnlineStatus();
+  console.log(onlineStatus);
+  if (!onlineStatus) {
+    return (
+      <h1>
+        Looks like you are offline! Please check your internet connection.
+      </h1>
+    );
   }
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex justify-center">
+        <div className="mx-2 px-2">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black w-80 rounded-lg p-1"
+            placeholder="Search Restaurants"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
           <button
+            className="w-28 px-4 py-2 bg-red-300 m-4 rounded-lg hover:bg-green-600"
             onClick={() => {
               // filter the restaurant cart and update the UI
               // search logic here
@@ -76,21 +80,23 @@ console.log(onlineStatus);
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            // filter logic here
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.data.avgRating > 4.2
-            );
-            setlistOfRestaurants(filteredList);
-            console.log("list", filteredList);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
+        {/* <div className="search m-2 p-2 flex items-center">
+          <button
+            className="px-4 py-2 bg-gray-100 m-4 rounded-lg"
+            onClick={() => {
+              // filter logic here
+              const filteredList = listOfRestaurants.filter(
+                (res) => res.data.avgRating > 4.2
+              );
+              setlistOfRestaurants(filteredList);
+              console.log("list", filteredList);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
+        </div> */}
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap px-6 mx-6">
         {/* <ResturantCard  resData={resList[0]}    /> */}
         {/* <ResturantCard resName="KFC" cuisine="Burger, Fast Food" /> */}
         {searchedRestaurants.map((restaurant) => (

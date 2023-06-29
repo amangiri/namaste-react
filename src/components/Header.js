@@ -1,4 +1,5 @@
 import { LOGO_URL } from "../utils/constants";
+import Logo from "../images/logo.svg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -16,26 +17,28 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-gray-100 shadow-lg mb-2 sm:bg-yellow-100 lg:bg-gray-100 sticky top-0">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <a href="/">
+          <img className="w-20" src={Logo} />
+        </a>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status: {onlineStatus ? "✅" : "⛔"}</li>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4">
+          {/* <li className="px-4">Online Status: {onlineStatus ? "✅" : "⛔"}</li> */}
+          <li className="px-4">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-4">Cart</li>
           <button
             className="login"
             onClick={() => {
