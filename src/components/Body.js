@@ -42,7 +42,7 @@ const Body = () => {
   // }
 
   const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus);
+  // console.log(onlineStatus);
   if (!onlineStatus) {
     return (
       <h1>
@@ -96,7 +96,7 @@ const Body = () => {
           </button>
         </div> */}
       </div>
-      <div className="flex flex-wrap px-6 mx-6">
+      <div className="flex flex-wrap px-4 mx-4">
         {/* <ResturantCard  resData={resList[0]}    /> */}
         {/* <ResturantCard resName="KFC" cuisine="Burger, Fast Food" /> */}
         {searchedRestaurants.map((restaurant) => (

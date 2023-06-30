@@ -10,24 +10,28 @@ const ResturantCard = (props) => {
     avgRating,
     costForTwo,
     deliveryTime,
+    // lastMileTravelString,
   } = resData?.data;
-  const fun =(name)=>{
-    console.log("res:",name)
-  }
+  const fun = (name) => {
+    console.log("res:", name);
+  };
   return (
-    <div
-      className="m-4 p-4 w-[200px] bg-gray-100 rounded-lg hover:bg-gray-300"      
-    >
+    <div className="m-4 p-4 ml-8 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-300">
       <img
         className="rounded-lg"
         src={CDN_URL + cloudinaryImageId}
         alt="res-logo"
       />
-      <h3 className="font-bold py-2 text-lg hover:z-10">{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} Stars</h4>
-      <h4>₹{costForTwo / 100} FOR TWO</h4>
-      <h4>{deliveryTime} minutes</h4>
+      <h3 className="font-bold py-1 text-lg hover:z-10">{name}</h3>
+      <h4 className="font-thin text-sm">{cuisines.join(", ")}</h4>
+      <div className="flex flex-wrap font-medium text-sm pt-2 mt-2 justify-between">
+        <button className={(avgRating>4) ? "pb-1 w-14 rounded-sm bg-green-500":"pb-1 w-14 rounded-sm bg-orange-500"}>
+          &#9733; {avgRating}
+        </button>
+        <h4>{deliveryTime} min</h4>
+        <h4>₹{costForTwo / 100} FOR TWO</h4>
+      </div>
+      {}
     </div>
   );
 };
