@@ -1,4 +1,5 @@
 import React from "react";
+import { GITHUB_PROFILE_URL } from "../utils/constants";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class UserClass extends React.Component {
 
   async componentDidMount() {
     console.log("componentDidMount");
-    const data= await fetch("https://api.github.com/users/amangiri");
+    const data= await fetch(GITHUB_PROFILE_URL);
     const json= await data.json();
     console.log(json);
     this.setState({

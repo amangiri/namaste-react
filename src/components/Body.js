@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RESTAURANT_LIST } from "../utils/constants";
 
 const Body = () => {
   // Local State Variable - super powerful variabe
@@ -25,9 +26,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6474698&lng=77.1140881&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RESTAURANT_LIST);
     const json = await data.json();
     // console.log(json);
     // optional chaining
@@ -66,7 +65,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="w-28 px-4 py-2 bg-red-300 m-4 rounded-lg hover:bg-green-600"
+            className="w-24 px-4 py-1 bg-red-300 m-4 rounded-lg hover:bg-green-600"
             onClick={() => {
               // filter the restaurant cart and update the UI
               // search logic here
