@@ -11,9 +11,8 @@ const ResturantCard = (props) => {
     costForTwo,
     deliveryTime,
     // lastMileTravelString,
-  } = resData?.data;
+  } = resData;
   const fun = (name) => {
-    console.log("res:", name);
   };
   return (
     <div className="m-4 p-4 ml-8 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-300">
@@ -35,5 +34,18 @@ const ResturantCard = (props) => {
     </div>
   );
 };
+// /Higher order compenent
 
+//  input - RestaurantCard ===> RestaurantCardPromoted
+
+export const withPromotedLabel = (ResturantCard)=>{
+  return (props)=>{
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-1 p-1 px-2 rounded-lg">Promoted</label>
+        <ResturantCard {...props} />
+      </div>
+    )
+  }
+}
 export default ResturantCard;
